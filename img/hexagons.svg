@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="28"
+   height="49"
+   viewBox="0 0 28 49"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="hexagons.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showguides="true"
+     inkscape:zoom="21.493803"
+     inkscape:cx="-0.25588771"
+     inkscape:cy="24.216283"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <g
+     fill-rule="evenodd"
+     id="g1">
+    <g
+       id="hexagons"
+       fill="#000"
+       fill-rule="nonzero">
+      <path
+         d="M 13.625688,8.7035316 26.99,16.75 v 15 l -13,7.5 L 1,31.75 v -15 z M 3,17.9 v 12.7 l 10.99,6.34 11,-6.35 V 17.9 l -11,-6.34 z M 0,15 12.98,7.5 V 0 h -2 V 6.35 L 0,12.69 v 2.3 z M 0,33.5 12.98,41 v 8 h -2 V 42.15 L 0,35.81 v -2.3 z M 15,0 V 7.5 L 27.99,15 H 28 V 12.69 H 27.99 L 17,6.35 V 0 Z m 0,49 V 41 L 27.99,33.5 H 28 v 2.31 H 27.99 L 17,42.15 V 49 Z"
+         id="path1"
+         sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccccccc" />
+    </g>
+  </g>
+</svg>

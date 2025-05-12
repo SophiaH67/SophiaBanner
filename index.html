@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Sophinya</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <!-- Import Tailwind -->
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="icon" href="/img/face_xd.png">
+
+  <style id="size-style"></style>
+  <script>
+    const sizeStyle = document.getElementById('size-style');
+    
+    let render = window.localStorage.getItem('render') === 'true' ?? true;
+
+    function updateSizeStyle() {
+      const width = render ? '1920px' : '100%';
+      const height = render ? '1080px' : '100%';
+
+      sizeStyle.innerHTML = `
+        html, body, body > div {
+          width: ${width};
+          height: ${height};
+        }
+      `;
+
+      if (render) {
+        const waves = document.querySelector('.waves');
+        waves.style['animation-play-state'] = 'paused';
+      } else {
+        const waves = document.querySelector('.waves');
+        waves.style['animation-play-state'] = 'running';
+      }
+    }
+
+    window.toggleRender = function() {
+      render = !render;
+      window.localStorage.setItem('render', render);
+      updateSizeStyle();
+    }
+
+    updateSizeStyle();
+  </script>
+
+  <style>
+    .bg-size-hexagons {
+      background-size: 12rem;
+    }
+
+    .text-stroke-large {
+      --stroke-color: #f472b6;
+      --stroke-size: 0.5rem;
+      --negative-stroke-size: calc(var(--stroke-size) * -1);
+      text-shadow: var(--negative-stroke-size) var(--negative-stroke-size) 0 var(--stroke-color), var(--stroke-size) var(--negative-stroke-size) 0 var(--stroke-color), var(--negative-stroke-size) var(--stroke-size) 0 var(--stroke-color), var(--stroke-size) var(--stroke-size) 0 var(--stroke-color);
+    }
+
+    .text-stroke-small {
+      --stroke-color: #f472b6;
+      --stroke-size: 0.1rem;
+      --negative-stroke-size: calc(var(--stroke-size) * -1);
+      text-shadow: var(--negative-stroke-size) var(--negative-stroke-size) 0 var(--stroke-color), var(--stroke-size) var(--negative-stroke-size) 0 var(--stroke-color), var(--negative-stroke-size) var(--stroke-size) 0 var(--stroke-color), var(--stroke-size) var(--stroke-size) 0 var(--stroke-color);
+    }
+
+    .white-outline {
+      --stroke-color: white;
+      --stroke-size: 4px;
+      --negative-stroke-size: calc(var(--stroke-size) * -1);
+      filter: drop-shadow(var(--stroke-size) 0 0 white) 
+              drop-shadow(0 var(--stroke-size) 0 white)
+              drop-shadow(var(--negative-stroke-size) 0 0 white) 
+              drop-shadow(0 var(--negative-stroke-size) 0 white);
+    }
+
+    li::marker {
+      border-radius: 100%;
+      width: 4px;
+      height: 4px;
+      display: inline-block;
+      color: white;
+      border-width: 4px;
+      border-color:#f472b6;
+      border-style: solid;
+    }
+
+    @font-face {
+      font-family: "Font Awesome 6 Pro";
+      src: url('/fonts/fa-regular-400.woff2') format('woff2');
+      font-weight: 400;
+    }
+
+    @font-face {
+      font-family: 'Radio Space';
+      src: url('/fonts/RadioSpaceBold.woff2') format('woff2'),
+          url('/fonts/RadioSpaceBold.woff') format('woff');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    .space-font {
+      font-family: 'Radio Space';
+    }
+
+    .fontawesome {
+      font-family: "Font Awesome 6 Pro";
+      font-weight: 400;
+    }
+
+    .border-white-pink {
+      border: 8px solid white;
+      outline: 0.15rem solid #f472b6;
+      outline-offset: -2px;
+    }
+  
+    .waves {
+      mask: url('/img/hexagons.svg'), url('/img/formal-invitation.svg');
+      mask-size: 12rem;
+      mask-composite: intersect;
+
+      animation: moveWaves 300s linear infinite;
+    }
+
+    @keyframes moveWaves {
+        from {
+          mask-position: left top, 0% 0%;
+          -webkit-mask-position: left top, 0% 0%;
+        }
+        to {
+          mask-position: left top, 100% 0%; /* only the first mask moves */
+          -webkit-mask-position: left top, 100% 0%;
+        }
+      }
+  </style>
+</head>
+<body>
+  <div class="relative top-0 left-0 overflow-hidden font-[oshigo]">
+    <!-- Background Image -->
+     <div class="absolute top-0 left-0 bg-[url('/img/bg3.webp')] bg-cover  w-full h-full saturate-[50%]"></div>
+     <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-tl from-sky-400 to-pink-400 via-fuchsia-400 opacity-70"></div>
+     <div class="absolute top-0 left-0 w-full h-full backdrop-blur-xl"></div>
+
+    <!-- Background Hexagons -->
+    <div class="absolute top-0 left-0 w-[100%] h-[100%]">
+        <div class="absolute top-0 left-0 bg-[url('/img/hexagons.svg')] w-full h-full bg-size-hexagons invert"></div>
+        <div class="absolute top-0 left-0 bg-gradient-to-br from-sky-400 to-pink-400 via-fuchsia-400 w-full h-full mix-blend-multiply waves"></div>
+    </div>
+
+    <!-- Darkening backdrop -->
+    <div class="absolute top-0 left-0 w-[100%] h-[100%] backdrop-brightness-[80%] backdrop-saturate-[100%] backdrop-blur-[2px]"></div>
+
+    <!-- Chara -->
+    <div class="absolute bottom-[-10rem] right-[5rem] drop-shadow-xl">
+      <img draggable="false" src="/img/Prpr Skeb-3 (T).png" class="h-[70rem]  white-outline">
+    </div>
+    <!-- Name -->
+    <div class="absolute top-[2.5rem] left-[5rem] font-bold text-slate-50 drop-shadow-xl">
+      <h1 class="text-[16rem] text-stroke-large space-font">
+        S<span class="opacity-0 relative">o</span>phia
+        <img draggable="false" src="/img/face_neutral_op.png" class="absolute left-[0.6em] top-[0.6em] scale-y-110">
+      </h1>
+    </div>
+
+    <!-- Projects -->
+    <div class="absolute top-[25rem] left-[5rem] mt-[6em] text-slate-50 rounded-xl border-white-pink shadow-xl">
+      <div class="flex justify-between items-center bg-gradient-to-r via-fuchsia-400 from-pink-400 to-sky-400    border-b-[4px] border-white">
+        <h2 class="text-[3rem] text-stroke-small space-font px-[0.25em]">Projects</h2>
+        <!-- Window-like buttons -->
+        <div class="flex items-center justify-stretch">
+          <div class="inline-block h-full backdrop-blur-3xl min-w-[3rem] text-center hover:backdrop-brightness-50 transition-all duration-700">
+            <button class="space-font text-[3rem] w-full" title="Minimize" onclick="document.exitFullscreen()">
+              -
+            </button>
+          </div>
+          <div class="relative inline-block h-full backdrop-blur-3xl min-w-[3rem] text-center hover:backdrop-brightness-50 transition-all duration-700">
+            <span class="space-font text-[3rem] w-full fontawesome opacity-0" title="Maximize">
+              
+            </span>
+            <button class="absolute space-font text-[2rem] w-full fontawesome left-0 top-[0.3em]" title="Maximize" onclick="document.documentElement.requestFullscreen()">
+              
+            </button>
+          </div>
+          <div class="inline-block h-full bg-red-500 min-w-[3rem] text-center ">
+            <button class="space-font w-full text-[3rem] hover:backdrop-brightness-50 transition-all duration-700" title="Close" onclick="window.toggleRender()">
+              X
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Main window class -->
+      <div class="bg-gradient-to-br from-pink-50 to-sky-50 px-[2em]" style="background-image: url('/img/paper-texture.jpg'); background-repeat: no-repeat; ">
+        <ul class="list-disc list-inside text-[3rem]">
+          <li class="list-none pb-[0.5em]"><a href="https://roboco.dev/"><img draggable="false" src="/img/Roboco.dev Logo.svg" class="inline hover:brightness-50 transition-all duration-700" /></a></li>
+          <li class="list-none pb-[0.5em]"><a href="https://github.com/SophiaH67/IceInfoViewer"><img draggable="false" src="/img/Ice Info Logo.svg" class="inline hover:brightness-50 transition-all duration-700" /></a></li>
+        </ul>
+      </div>
+  </div>
+</body>
+</html>
