@@ -10,12 +10,16 @@
   <link rel="icon" href="/img/face_xd.png">
 
   <style id="size-style"></style>
-  <script>
+  <script >
     const sizeStyle = document.getElementById('size-style');
     
     let render = window.localStorage.getItem('render') === 'true' ?? true;
 
-    function updateSizeStyle() {
+    const animationFrame = () => new Promise(resolve => requestAnimationFrame(resolve));
+
+    async function updateSizeStyle() {
+      await animationFrame();
+
       const width = render ? '1920px' : '100%';
       const height = render ? '1080px' : '100%';
 
