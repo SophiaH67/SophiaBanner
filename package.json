@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "vite"
+    "start:dev": "vite",
+    "build": "vite build"
   },
   "author": "",
   "license": "ISC",
