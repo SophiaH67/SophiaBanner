@@ -17,11 +17,14 @@
 
     const animationFrame = () => new Promise(resolve => requestAnimationFrame(resolve));
 
+    let renderWidth = 1920;
+    let renderHeight = 1080;
+
     async function updateSizeStyle() {
       await animationFrame();
 
-      const width = render ? '1920px' : '100%';
-      const height = render ? '1080px' : '100%';
+      const width = render ? `${renderWidth}px` : '100%';
+      const height = render ? `${renderHeight}px` : '100%';
 
       sizeStyle.innerHTML = `
         html, body, body > div {
@@ -39,7 +42,10 @@
       }
     }
 
-    window.toggleRender = function() {
+    window.toggleRender = function(width = 1920, height = 1080) {
+      renderWidth = width;
+      renderHeight = height;
+
       render = !render;
       window.localStorage.setItem('render', render);
       updateSizeStyle();
