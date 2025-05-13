@@ -55,7 +55,7 @@
 
     .text-stroke-large {
       --stroke-color: #f472b6;
-      --stroke-size: 0.5rem;
+      --stroke-size: 0.2rem;
       --negative-stroke-size: calc(var(--stroke-size) * -1);
       text-shadow: var(--negative-stroke-size) var(--negative-stroke-size) 0 var(--stroke-color), var(--stroke-size) var(--negative-stroke-size) 0 var(--stroke-color), var(--negative-stroke-size) var(--stroke-size) 0 var(--stroke-color), var(--stroke-size) var(--stroke-size) 0 var(--stroke-color);
     }
@@ -67,9 +67,15 @@
       text-shadow: var(--negative-stroke-size) var(--negative-stroke-size) 0 var(--stroke-color), var(--stroke-size) var(--negative-stroke-size) 0 var(--stroke-color), var(--negative-stroke-size) var(--stroke-size) 0 var(--stroke-color), var(--stroke-size) var(--stroke-size) 0 var(--stroke-color);
     }
 
+    @media (min-width: 1024px) {
+      .text-stroke-large {
+        --stroke-size: 0.5rem;
+      }
+    }
+
     .white-outline {
       --stroke-color: white;
-      --stroke-size: 4px;
+      --stroke-size: 2px;
       --negative-stroke-size: calc(var(--stroke-size) * -1);
       filter: drop-shadow(var(--stroke-size) 0 0 white) 
               drop-shadow(0 var(--stroke-size) 0 white)
@@ -139,37 +145,38 @@
   </style>
 </head>
 <body>
-  <div class="relative top-0 left-0 overflow-hidden font-[oshigo]">
+  <div class="absolute top-0 left-0 lg:overflow-hidden font-[oshigo]">
     <!-- Background Image -->
-     <div class="absolute top-0 left-0 bg-[url('/img/bg3.webp')] bg-cover  w-full h-full saturate-[50%]"></div>
-     <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-tl from-sky-400 to-pink-400 via-fuchsia-400 opacity-70"></div>
-     <div class="absolute top-0 left-0 w-full h-full backdrop-blur-xl"></div>
+     <div class="fixed top-0 left-0 bg-[url('/img/bg3.webp')] bg-cover w-full min-h-[100%] bg-no-repeat saturate-[50%]"></div>
+     <div class="fixed top-0 left-0 w-full h-full bg-gradient-to-tl from-sky-400 to-pink-400 via-fuchsia-400 opacity-70"></div>
+     <div class="fixed top-0 left-0 w-full h-full backdrop-blur-xl"></div>
 
     <!-- Background Hexagons -->
-    <div class="absolute top-0 left-0 w-[100%] h-[100%]">
-        <div class="absolute top-0 left-0 bg-[url('/img/hexagons.svg')] w-full h-full bg-size-hexagons invert"></div>
-        <div class="absolute top-0 left-0 bg-gradient-to-br from-sky-400 to-pink-400 via-fuchsia-400 w-full h-full mix-blend-multiply waves"></div>
+    <div class="fixed top-0 left-0 w-[100%] min-h-[100%]">
+        <div class="fixed top-0 left-0 bg-[url('/img/hexagons.svg')] w-full h-full bg-size-hexagons invert"></div>
+        <div class="fixed top-0 left-0 bg-gradient-to-br from-sky-400 to-pink-400 via-fuchsia-400 w-full h-full mix-blend-multiply waves"></div>
     </div>
 
     <!-- Darkening backdrop -->
-    <div class="absolute top-0 left-0 w-[100%] h-[100%] backdrop-brightness-[80%] backdrop-saturate-[100%] backdrop-blur-[2px]"></div>
-
-    <!-- Chara -->
-    <div class="absolute bottom-[-10rem] right-[5rem] drop-shadow-xl">
-      <img draggable="false" src="/img/Prpr Skeb-3 (T).png" class="h-[70rem]  white-outline">
-    </div>
+    <div class="fixed top-0 left-0 w-[100%] h-[100%] backdrop-brightness-[80%] backdrop-saturate-[100%] backdrop-blur-[2px]"></div>
+   
     <!-- Name -->
-    <div class="absolute top-[2.5rem] left-[5rem] font-bold text-slate-50 drop-shadow-xl">
-      <h1 class="text-[16rem] text-stroke-large space-font">
+    <div class="lg:absolute top-[2.5rem] lg:left-[5rem] font-bold w-full lg:w-auto text-slate-50 drop-shadow-xl">
+      <h1 class="text-[6rem] lg:text-[16rem] text-center lg:text-left w-full lg:w-auto text-stroke-large space-font">
         S<span class="opacity-0 relative">o</span>phia
-        <img draggable="false" src="/img/face_neutral_op.png" class="absolute left-[0.6em] top-[0.6em] scale-y-110">
+        <img draggable="false" src="/img/face_neutral_op.png" class="absolute scale-[45%] left-[0.59em] top-[0.2em] lg:left-[0.6em] lg:top-[0.6em] lg:scale-100 lg:scale-y-110">
       </h1>
     </div>
 
+     <!-- Chara -->
+     <div class="lg:absolute lg:bottom-[-10rem] lg:right-[5rem] drop-shadow-xl">
+      <img draggable="false" src="/img/Prpr Skeb-3 (T).png" class="lg:h-[70rem] w-[85vw] m-auto lg:m-0 lg:w-auto white-outline">
+    </div>
+
     <!-- Projects -->
-    <div class="absolute top-[25rem] left-[5rem] mt-[6em] text-slate-50 rounded-xl border-white-pink shadow-xl">
-      <div class="flex justify-between items-center bg-gradient-to-r via-fuchsia-400 from-pink-400 to-sky-400    border-b-[4px] border-white">
-        <h2 class="text-[3rem] text-stroke-small space-font px-[0.25em]">Projects</h2>
+    <div class="relative mx-auto w-[90vw] lg:w-auto lg:mx-0 lg:absolute lg:top-[25rem] lg:left-[5rem] lg:mt-[6em] text-slate-50 rounded-xl border-white-pink shadow-xl">
+      <div class="flex justify-between items-center bg-gradient-to-r via-fuchsia-400 from-pink-400 to-sky-400 border-b-[4px] border-white">
+        <h2 class="text-[2rem] lg:text-[3rem] text-stroke-small space-font px-[0.25em]">Projects</h2>
         <!-- Window-like buttons -->
         <div class="flex items-center justify-stretch">
           <div class="inline-block h-full backdrop-blur-3xl min-w-[3rem] text-center hover:backdrop-brightness-50 transition-all duration-700">
@@ -195,10 +202,13 @@
       <!-- Main window class -->
       <div class="bg-gradient-to-br from-pink-50 to-sky-50 px-[2em]" style="background-image: url('/img/paper-texture.jpg'); background-repeat: no-repeat; ">
         <ul class="list-disc list-inside text-[3rem]">
-          <li class="list-none pb-[0.5em]"><a href="https://roboco.dev/"><img draggable="false" src="/img/Roboco.dev Logo.svg" class="inline hover:brightness-50 transition-all duration-700" /></a></li>
-          <li class="list-none pb-[0.5em]"><a href="https://github.com/SophiaH67/IceInfoViewer"><img draggable="false" src="/img/Ice Info Logo.svg" class="inline hover:brightness-50 transition-all duration-700" /></a></li>
+          <li class="list-none pb-[0.5em]"><a href="https://roboco.dev/"><img draggable="false" src="/img/Roboco.dev Logo.svg" class="inline hover:brightness-50 transition-all duration-700 w-[70vw] lg:w-auto" /></a></li>
+          <li class="list-none pb-[0.5em]"><a href="https://github.com/SophiaH67/IceInfoViewer"><img draggable="false" src="/img/Ice Info Logo.svg" class="inline hover:brightness-50 transition-all duration-700 w-[70vw] lg:w-auto  " /></a></li>
         </ul>
       </div>
   </div>
+
+  <!-- Small div to make experience look nicer on mobile (allow scrolling) -->
+  <div height="lg:hidden"><br><br></div>
 </body>
 </html>
