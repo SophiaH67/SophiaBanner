@@ -163,8 +163,9 @@
     <!-- Name -->
     <div class="lg:absolute top-[2.5rem] lg:left-[5rem] font-bold w-full lg:w-auto text-slate-50 drop-shadow-xl">
       <h1 class="text-[6rem] lg:text-[16rem] text-center lg:text-left w-full lg:w-auto text-stroke-large space-font">
-        S<span class="opacity-0 relative">o</span>phia
-        <img draggable="false" src="/img/face_neutral_op.png" class="absolute scale-[45%] left-[0.59em] top-[0.2em] lg:left-[0.6em] lg:top-[0.6em] lg:scale-100 lg:scale-y-110">
+        <span id="imgfallback" style="display: inline">Sophia</span>
+        <img draggable="false" src="/img/Sophia Logo - Inverted.svg" class="inline h-[1em]" onload="imgfallback.style.display = 'none'" onerror="imgfallback.style.display = 'inline'">
+      </h1>
       </h1>
     </div>
 
